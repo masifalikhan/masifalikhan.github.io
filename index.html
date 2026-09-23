@@ -336,6 +336,60 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 .cert .verify{font-size:.82rem;font-weight:600;color:var(--primary);margin-top:6px;opacity:0;transform:translateY(4px);transition:opacity .25s,transform .25s}
 .cert:hover .verify,.cert:focus-visible .verify{opacity:1;transform:none}
 @media (hover:none){.cert .verify{opacity:1;transform:none}}
+/* ===== Mobile polish ===== */
+.m-dots{display:none}
+@media (max-width:760px){
+  body{font-size:16px}
+  section.block{padding-block:60px 0}
+  .head{margin-bottom:24px}
+  .head p{font-size:1rem}
+  h2{font-size:1.65rem}
+  .hero{min-height:auto;padding-block:104px 76px}
+  .hero h1{font-size:2.3rem;margin-top:18px}
+  .hero .lead{font-size:1.02rem}
+  .badge{font-size:.8rem}
+  .ctas{gap:10px}
+  .ctas .btn{flex:1 1 100%;justify-content:center;padding:14px 16px;white-space:nowrap}
+  .socials{margin-top:22px}
+  .stats-wrap{margin-top:-36px}
+  .stat{padding:18px 16px}
+  .stat b{font-size:1.65rem}
+  .stat span{font-size:.86rem;line-height:1.35;display:block}
+  .marquee{margin-top:36px}
+  .marquee span{font-size:.85rem;padding:8px 14px}
+  .code pre{font-size:.72rem;padding:16px}
+  .about-lower{margin-top:36px}
+  .facts li{flex:1 1 100%}
+  .research{padding:18px;border-radius:18px}
+  .research-top{gap:22px}
+  .pipe{margin-top:24px}
+  .xp-head .chip{order:3}
+  .contact{padding:26px 20px;border-radius:20px}
+  .contact .ctas .btn{flex:1 1 100%}
+  .c-item{padding:14px}
+  footer{margin-top:56px}
+  footer .wrap{flex-direction:column;align-items:center;text-align:center}
+  #toTop{right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px))}
+
+  /* swipe carousels */
+  .m-scroll{display:flex!important;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;margin-inline:-20px;padding:4px 20px 6px;scroll-padding-inline:20px;-webkit-overflow-scrolling:touch;scrollbar-width:none;grid-template-columns:none!important;max-width:none!important}
+  .m-scroll::-webkit-scrollbar{display:none}
+  .m-scroll>*{flex:0 0 84%;scroll-snap-align:start;min-width:0;grid-column:auto!important}
+  .m-scroll>.card:hover{transform:none}
+  .m-dots{display:flex;justify-content:center;gap:7px;margin-top:14px}
+  .m-dots i{width:7px;height:7px;border-radius:99px;background:var(--line);transition:width .25s,background .25s}
+  .m-dots i.on{width:22px;background:var(--primary)}
+
+  /* full-screen menu */
+  .links{position:fixed!important;top:calc(68px + env(safe-area-inset-top,0px))!important;left:0;right:0;bottom:0;padding:18px 20px 32px!important;gap:4px;overflow-y:auto;border:0!important;box-shadow:none!important;background:var(--surface)!important}
+  .links.open{display:flex;animation:menuIn .25s ease-out}
+  .links a{font-family:var(--display);font-size:1.3rem!important;font-weight:600;padding:14px 8px!important;border-bottom:1px solid var(--line);border-radius:0!important}
+  .nav.menu-open{background:var(--surface);border-color:var(--line)}
+  .nav.menu-open .brand{color:var(--ink)}
+  .nav.menu-open .icon-btn{border-color:var(--line);color:var(--ink)}
+  body.no-scroll{overflow:hidden}
+}
+@keyframes menuIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before{animation:none!important;transition:none!important}.reveal.pre{opacity:1;transform:none}}
 </style>
 <script>try{var t=localStorage.getItem('theme');if(t){document.documentElement.setAttribute('data-theme',t)}else if(matchMedia('(prefers-color-scheme: dark)').matches){document.documentElement.setAttribute('data-theme','dark')}}catch(e){}</script>
@@ -446,7 +500,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
     <span class="k">def</span> next_step(self):
         <span class="k">return</span> <span class="s">"PhD in trustworthy FL"</span></pre>
     </div>
-    <div class="focus">
+    <div class="focus m-scroll">
       <div class="card reveal"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><circle cx="4" cy="5" r="2"/><circle cx="20" cy="5" r="2"/><circle cx="4" cy="19" r="2"/><circle cx="20" cy="19" r="2"/><path d="M6 6l4 4M18 6l-4 4M6 18l4-4M18 18l-4-4"/></svg></div><h3>Contribution estimation</h3><p>Shapley-value credit for every client in the federation.</p></div>
       <div class="card reveal"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3v18M5 7h14M5 7l-3 7a3 3 0 0 0 6 0zM19 7l-3 7a3 3 0 0 0 6 0z"/></svg></div><h3>Fair aggregation</h3><p>Aggregation weights that follow each client's real utility.</p></div>
       <div class="card reveal"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></div><h3>Robust training</h3><p>Stable learning under non-IID data and partial participation.</p></div>
@@ -487,7 +541,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
           <p style="color:var(--muted);margin-top:18px">Key ingredients: FedProx-style proximal training, FW-Shapley contribution estimation and Beta-Shapley coalition sampling.</p>
         </div>
       </div>
-      <div class="pipe">
+      <div class="pipe m-scroll">
         <div class="step"><span class="num"></span><h3>Local training</h3><p>Proximal term keeps client drift in check.</p></div>
         <div class="step"><span class="num"></span><h3>Coalition sampling</h3><p>Beta-Shapley picks client coalitions efficiently.</p></div>
         <div class="step"><span class="num"></span><h3>Contribution score</h3><p>FW-Shapley estimates each client's utility.</p></div>
@@ -501,7 +555,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 <section class="block" id="publications">
   <div class="wrap">
     <div class="head reveal"><div class="eyebrow">Publications</div><h2>Journal articles</h2></div>
-    <div class="grid g2">
+    <div class="grid g2 m-scroll">
       <article class="card pub reveal"><span class="pill">Under review</span><h3>SimFL-FWShapley: Efficient and Drift-Aware Shapley-Based Credit Assignment for Federated GBDT Learning</h3><span class="journal">Machine Learning · Springer</span></article>
       <article class="card pub reveal"><span class="pill">Under review</span><h3>FedCAWS: An Efficient Amortized Learning-Based Contribution-Aware Aggregation Framework for Federated Learning</h3><span class="journal">Machine Learning · Springer</span></article>
     </div>
@@ -535,7 +589,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
       </aside>
     </div>
     <h3 class="sub reveal">Courses I can teach</h3>
-    <div class="courses">
+    <div class="courses m-scroll">
       <div class="card course reveal"><span class="c-code">ML</span><h3>Machine Learning</h3><p>Regression, classification, SVMs, ensembles, clustering and model evaluation.</p></div>
       <div class="card course reveal"><span class="c-code">DL</span><h3>Deep Learning</h3><p>Neural networks, CNNs, RNNs and LSTMs, Transformers, training and regularization.</p></div>
       <div class="card course reveal"><span class="c-code">NLP</span><h3>Natural Language Processing</h3><p>Text preprocessing, embeddings, sentiment analysis, BERT and LLM applications.</p></div>
@@ -553,7 +607,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
       <div class="company"><div class="logo">EZ</div><div><h3>AI Engineer Intern</h3><span class="school">Eziline Software House · Islamabad</span></div></div>
       <span class="chip">Feb 2026 – Jul 2026</span>
     </div>
-    <div class="xp-list">
+    <div class="xp-list m-scroll">
       <div class="card reveal"><span class="metric">88%</span><h3>Roman Urdu abuse detection</h3><p>Flask app that flags abusive Roman Urdu comments in real time, using TF-IDF features and several classifiers.</p></div>
       <div class="card reveal"><span class="metric">0.85 Dice</span><h3>Brain tumor segmentation</h3><p>2D U-Net on multi-modal MRI with IoU evaluation, prediction overlays and a Streamlit UI.</p></div>
       <div class="card reveal"><span class="metric">90%</span><h3>Emotion detection</h3><p>Streamlit NLP app that reads emotion from English text with confidence scores.</p></div>
@@ -566,7 +620,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 <section class="block" id="projects">
   <div class="wrap">
     <div class="head reveal"><div class="eyebrow">Projects</div><h2>Selected projects</h2></div>
-    <div class="grid g2">
+    <div class="grid g2 m-scroll">
       <article class="card proj reveal"><div class="top"><h3>Book Recommendation System</h3><span class="date">Aug 2024</span></div><p>Hybrid recommender combining collaborative and content-based filtering, with NLP features from book descriptions.</p><div class="tags"><span class="tag">NLP</span><span class="tag">Recommender</span><span class="tag">Flask</span></div></article>
       <article class="card proj reveal"><div class="top"><h3>Bank Churn Prediction</h3><span class="date">Oct 2025</span></div><p>Deep neural network predicting customer churn with 88% accuracy, explained with SHAP.</p><div class="tags"><span class="tag">Deep Learning</span><span class="tag">Explainable AI</span></div></article>
       <article class="card proj reveal"><div class="top"><h3>Student Stress Level Classifier</h3><span class="date">Jan – Mar 2026</span></div><p>Three-level stress classifier with 90% accuracy, served in a Streamlit dashboard with health tips.</p><div class="tags"><span class="tag">Classification</span><span class="tag">Streamlit</span></div></article>
@@ -578,7 +632,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 <section class="block" id="skills">
   <div class="wrap">
     <div class="head reveal"><div class="eyebrow">Skills</div><h2>Tools I work with</h2></div>
-    <div class="skills">
+    <div class="skills m-scroll">
       <div class="card reveal"><h3>Languages</h3><div class="tags"><span class="tag">Python</span><span class="tag">R</span></div></div>
       <div class="card reveal"><h3>ML / DL frameworks</h3><div class="tags"><span class="tag">PyTorch</span><span class="tag">TensorFlow</span><span class="tag">Keras</span><span class="tag">Scikit-learn</span><span class="tag">NLTK</span></div></div>
       <div class="card reveal"><h3>Deep learning &amp; vision</h3><div class="tags"><span class="tag">CNN</span><span class="tag">RNN</span><span class="tag">LSTM</span><span class="tag">Transformers</span><span class="tag">U-Net</span><span class="tag">YOLOv5</span></div></div>
@@ -612,7 +666,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 <section class="block" id="certifications">
   <div class="wrap">
     <div class="head head-center reveal"><h2>Certifications &amp; <span class="grad-text">Credentials</span></h2></div>
-    <div class="certs">
+    <div class="certs m-scroll">
       <a class="card cert reveal" href="https://coursera.org/verify/YGVKPQ8SU0N2" target="_blank" rel="noopener">
         <span class="cert-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="M8.5 13.8L7 22l5-3 5 3-1.5-8.2"/></svg></span>
         <h3>Develop Generative AI Applications</h3>
@@ -711,8 +765,22 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
   // reveal (content visible by default; only below-the-fold items animate)
   if('IntersectionObserver' in window && !reduce){
     var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.remove('pre');io.unobserve(e.target)}})},{threshold:.12});
-    document.querySelectorAll('.reveal').forEach(function(el){if(el.getBoundingClientRect().top>innerHeight){el.classList.add('pre');io.observe(el)}});
+    var mob=matchMedia('(max-width:760px)').matches;
+    document.querySelectorAll('.reveal').forEach(function(el){if(mob&&el.closest('.m-scroll'))return;if(el.getBoundingClientRect().top>innerHeight){el.classList.add('pre');io.observe(el)}});
   }
+
+  // mobile swipe dots
+  document.querySelectorAll('.m-scroll').forEach(function(c){
+    var n=c.children.length; if(n<2) return;
+    var d=document.createElement('div'); d.className='m-dots'; d.setAttribute('aria-hidden','true');
+    for(var i=0;i<n;i++){d.appendChild(document.createElement('i'))}
+    d.firstChild.classList.add('on'); c.after(d);
+    c.addEventListener('scroll',function(){var w=c.children[0].getBoundingClientRect().width+14;var k=Math.min(n-1,Math.round(c.scrollLeft/w));[].forEach.call(d.children,function(x,j){x.classList.toggle('on',j===k)})},{passive:true});
+  });
+  // menu: lock scroll + solid bar while open
+  var navEl=document.getElementById('nav'),mbtn=document.getElementById('menuBtn'),lk=document.getElementById('navLinks');
+  var icoMenu=mbtn.innerHTML,icoClose='<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>';
+  new MutationObserver(function(){var o=lk.classList.contains('open');navEl.classList.toggle('menu-open',o);document.body.classList.toggle('no-scroll',o);mbtn.innerHTML=o?icoClose:icoMenu;mbtn.setAttribute('aria-label',o?'Close menu':'Open menu')}).observe(lk,{attributes:true,attributeFilter:['class']});
 
   // counters
   if(!reduce){
