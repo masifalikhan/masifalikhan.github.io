@@ -30,6 +30,7 @@
   "name": "Muhammad Asif Ali Khan",
   "alternateName": ["Asif Khan", "Asif Ali Khan"],
   "url": "https://masifalikhan.github.io/",
+  "image": "https://masifalikhan.github.io/profile.jpg",
   "email": "mailto:masifalikhan697@gmail.com",
   "jobTitle": "Federated Learning Researcher, AI Engineer, Lecturer",
   "address": {"@type": "PostalAddress", "addressLocality": "Islamabad", "addressCountry": "PK"},
@@ -168,9 +169,26 @@ section.block{padding-block:96px 0}
 .reveal.pre{opacity:0;transform:translateY(24px)}
 
 /* about */
-.about{display:grid;grid-template-columns:1fr 1.1fr;gap:48px;align-items:center}
-.about .code{order:2}
-@media (max-width:860px){.about{grid-template-columns:1fr;gap:32px}}
+.about{display:grid;grid-template-columns:minmax(0,360px) 1fr;gap:56px;align-items:center}
+.portrait{margin:0;position:relative;max-width:360px;width:100%;justify-self:center}
+.portrait-frame{position:relative;border-radius:26px;padding:5px;background:linear-gradient(140deg,var(--primary),var(--accent) 50%,var(--accent-2));box-shadow:0 30px 60px -20px rgba(47,91,234,.45)}
+.portrait-frame::before{content:"";position:absolute;inset:-18px;border-radius:40px;background:radial-gradient(closest-side,rgba(124,92,255,.35),transparent);z-index:-1;filter:blur(8px)}
+.portrait-frame img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:22px;background:#c9ccd1}
+.portrait{transition:transform .5s}
+.p-badge{position:absolute;left:-18px;bottom:28px;display:flex;gap:12px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:12px 16px;box-shadow:var(--shadow);animation:bob 5s ease-in-out infinite}
+.p-badge .medal{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,#FFD978,#E8A93A);color:#5a3a00;font-size:1.05rem}
+.p-badge b{display:block;font-family:var(--display);font-size:.95rem}
+.p-badge small{color:var(--muted);font-size:.8rem}
+@keyframes bob{50%{transform:translateY(-6px)}}
+@media (max-width:860px){.p-badge{left:8px}.portrait{max-width:300px}}
+.facts{list-style:none;margin:24px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:10px}
+.facts li{border:1px solid var(--line);background:var(--surface);border-radius:12px;padding:10px 14px;font-weight:600;font-size:.95rem}
+.facts span{display:block;font-family:var(--mono);font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);font-weight:500}
+.about-lower{display:grid;grid-template-columns:1.15fr 1fr;gap:24px;margin-top:48px;align-items:stretch}
+@media (max-width:900px){.about-lower{grid-template-columns:1fr}}
+.about-lower .focus{grid-template-columns:1fr;margin-top:0}
+.about-lower .code{transform:none}
+@media (max-width:860px){.about{grid-template-columns:1fr;gap:36px}}
 .avatar{width:220px;aspect-ratio:1;max-width:100%;border-radius:28px;padding:4px;background:linear-gradient(135deg,var(--primary),var(--accent),var(--accent-2))}
 .avatar div{width:100%;height:100%;border-radius:24px;background:var(--surface);display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:4rem;color:var(--primary);letter-spacing:-.03em}
 .about-text p{font-size:1.1rem}
@@ -280,7 +298,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 .marquee span b{color:var(--primary);font-weight:700;margin-right:8px;font-size:.7rem;vertical-align:2px}
 @keyframes slide{to{transform:translateX(calc(-50% - 7px))}}
 .head .eyebrow::before{content:"";display:inline-block;width:22px;height:2px;background:linear-gradient(90deg,var(--primary),var(--accent));vertical-align:middle;margin-right:10px;border-radius:2px}
-@media (prefers-reduced-motion:reduce){.intro>*,#scene,.marquee-track{animation:none!important}.hero .glow{display:none}}
+@media (prefers-reduced-motion:reduce){.intro>*,#scene,.marquee-track,.p-badge{animation:none!important}.hero .glow{display:none}}
 /* teaching */
 .teach-top{display:grid;grid-template-columns:1.35fr 1fr;gap:20px;align-items:stretch}
 @media (max-width:900px){.teach-top{grid-template-columns:1fr}}
@@ -389,7 +407,24 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 <section class="block" id="about">
   <div class="wrap">
     <div class="about reveal">
-      <div class="code" aria-label="Researcher profile written as Python code">
+      <figure class="portrait">
+        <div class="portrait-frame"><img src="profile.jpg" alt="Portrait of Muhammad Asif Ali Khan" width="702" height="877"></div>
+        <figcaption class="p-badge"><span class="medal">★</span><span><b>Silver Medalist</b><small>MS Data Science · STMU</small></span></figcaption>
+      </figure>
+      <div class="about-text">
+        <div class="eyebrow">About me</div>
+        <h2 style="margin:10px 0 18px">From pure mathematics to trustworthy machine learning</h2>
+        <p>I'm an MS Data Science graduate from Shifa Tameer-e-Millat University, where I finished as <b>Silver Medalist</b> with a CGPA of 3.64. My foundation is a BS in Mathematics from International Islamic University Islamabad.</p>
+        <p>My research is about credit assignment in federated systems: measuring how much each client helps the global model, and building aggregation rules that reward useful updates and hold back harmful ones. In a PhD I want to take this toward federated learning that is robust, privacy-preserving and backed by theory.</p>
+        <ul class="facts">
+          <li><span>Based in</span>Islamabad, Pakistan</li>
+          <li><span>Focus</span>Federated Learning</li>
+          <li><span>Open to</span>PhD &amp; Lecturer roles</li>
+        </ul>
+      </div>
+    </div>
+    <div class="about-lower">
+      <div class="code reveal" aria-label="Researcher profile written as Python code">
       <div class="code-bar"><span class="dot" style="background:#FF5F57"></span><span class="dot" style="background:#FEBC2E"></span><span class="dot" style="background:#28C840"></span><span class="name">asif_khan.py</span></div>
 <pre><span class="k">class</span> Researcher:
     name   = <span class="s">"Muhammad Asif Ali Khan"</span>
@@ -411,17 +446,11 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
     <span class="k">def</span> next_step(self):
         <span class="k">return</span> <span class="s">"PhD in trustworthy FL"</span></pre>
     </div>
-      <div class="about-text">
-        <div class="eyebrow">About me</div>
-        <h2 style="margin:10px 0 18px">From pure mathematics to trustworthy machine learning</h2>
-        <p>I'm an MS Data Science graduate from Shifa Tameer-e-Millat University, where I finished as <b>Silver Medalist</b> with a CGPA of 3.64. My foundation is a BS in Mathematics from International Islamic University Islamabad.</p>
-        <p>My research is about credit assignment in federated systems: measuring how much each client helps the global model, and building aggregation rules that reward useful updates and hold back harmful ones. In a PhD I want to take this toward federated learning that is robust, privacy-preserving and backed by theory.</p>
-      </div>
-    </div>
     <div class="focus">
       <div class="card reveal"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><circle cx="4" cy="5" r="2"/><circle cx="20" cy="5" r="2"/><circle cx="4" cy="19" r="2"/><circle cx="20" cy="19" r="2"/><path d="M6 6l4 4M18 6l-4 4M6 18l4-4M18 18l-4-4"/></svg></div><h3>Contribution estimation</h3><p>Shapley-value credit for every client in the federation.</p></div>
       <div class="card reveal"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3v18M5 7h14M5 7l-3 7a3 3 0 0 0 6 0zM19 7l-3 7a3 3 0 0 0 6 0z"/></svg></div><h3>Fair aggregation</h3><p>Aggregation weights that follow each client's real utility.</p></div>
       <div class="card reveal"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></div><h3>Robust training</h3><p>Stable learning under non-IID data and partial participation.</p></div>
+    </div>
     </div>
   </div>
 </section>
@@ -704,7 +733,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 
   // 3D tilt on cards
   if(matchMedia('(hover:hover)').matches && !reduce){
-    document.querySelectorAll('.card,.research').forEach(function(el){
+    document.querySelectorAll('.card,.research,.portrait').forEach(function(el){
       el.classList.add('tilt');
       el.addEventListener('mousemove',function(e){var r=el.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5,k=el.classList.contains('research')?2:6;
         el.style.transform='perspective(900px) rotateX('+(-y*k)+'deg) rotateY('+(x*k)+'deg) translateY(-4px)'});
